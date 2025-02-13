@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BN Burn</title>
+    <link rel="icon" href="css/bnburn-logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header-bar">
+        <div class="icon">
+            <a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <div class="icon">
+            <a href="#" target="_blank"> <i class="fa-brands fa-telegram"></i></a>
+            <!--Link telegram-->
+        </div>
+        <div class="icon">
+            <a href="#" target="_blank"> <i class="fa-solid fa-capsules"></i></a>
+        </div>
+        <div class="icon">
+            <a href="#" target="_blank"> <i class="fa-solid fa-headphones"></i></a>
+        </div>
+        <div class="icon">
+            <a href="#" target="_blank"><i class="fa-solid fa-person-dress"></i></a> 
+        </div>
+    </header>
+    <!-- Loading Screen -->
+    <div class="loading">
+        <h1>
+            <span>B</span><span>N</span><span>B</span><span>u</span><span>r</span><span>n</span>
+        </h1>
+        <div class="loading-bar">
+            <div class="loading-bar-inner"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="background-1">
+
+            <div class="container">
+                <p class="neon-text">
+                    <span>Welcome to BNBurn</span> <span>Fuel the Fire,</span> <span>Burn the Supply!
+                </p>
+           
+            </div>
+
+            <img class="logo" src="css/bnburn-logo.png" />
+            <div class="container-cute">
+                <input type="text" class="cute-textbox" value="FtjHjWBrozFsP8jyxXg3D6N95Vhkp1n6GYayhhcspump" readonly />
+            </div>
+        </div>
+        <div class="background-2">
+            <div class="container-cute">
+                <h1 class="neon-text">
+                    <span>T</span>
+                    <span>O</span>
+                    <span>K</span>
+                    <span>E</span>
+                    <span>N</span>
+                    <span>O</span>
+                    <span>M</span>
+                    <span>I</span>
+                    <span>C</span>
+                    <span>S</span>
+                </h1>
+                <input type="text" class="cute-textbox" value="taxes are 5/5" readonly />
+                <input type="text" class="cute-textbox" value="3% burn" readonly />
+                <input type="text" class="cute-textbox" value="1% marketing" readonly />
+                <input type="text" class="cute-textbox" value="1% marketing" readonly />
+                <p class="with-background-text">
+                    At BNBurn, we’re here to redefine the memecoin game with a purpose: reducing supply, increasing demand, and turning up the heat in the crypto world! Powered by an innovative burning mechanism, every transaction brings us closer to our goal—creating a truly deflationary token that benefits the community.  
+                    <br><br>
+                    Our mission is simple: more burns, more scarcity, more potential value for our holders. Whether you’re a seasoned investor or a memecoin enthusiast, BNBurn offers a fun and rewarding ecosystem with transparency and community-driven growth at its core.  
+                    <br><br>
+                    Ready to watch the flames rise? Join the BNBurn revolution today and be part of a movement that’s lighting up the crypto space like never before!
+                </p>
+                <img class="logo-anya" src="css/burn.png" />
+            </div>
+
+            <footer>
+                <h5>Powered By&nbsp;<a href="https://t.me/Monstergreen" target="_blank">Green Art</a></h5>
+                <h5>Developed by&nbsp;<a href="https://t.me/Rixxana" target="_blank">Rixxana</a></h5>
+            </footer>
+        </div>
+
+    </div>
+
+    <script>
+        $(window).on('load', function () {
+            const spans = document.querySelectorAll('.neon-text span');
+
+            spans.forEach((span, index) => {
+                const randomDelay = Math.random() * 2; // Random delay between 0 and 2 seconds
+                span.style.animationDelay = `${randomDelay}s`;
+            });
+
+            const $loadingScreen = $('.loading');
+            const $content = $('.content');
+            const $header = $('.header-bar');
+            const $letters = $('.loading h1 span');
+            const $logo = $('#logo');
+
+            // Animate each letter with a delay
+            $letters.each(function (index) {
+                const $letter = $(this);
+                setTimeout(function () {
+                    $letter.css('animation', 'fade-bounce 1.5s forwards');
+                }, index * 300); // Delay each letter's animation
+            });
+
+            // Fade out and zoom the logo after the text animations
+            setTimeout(function () {
+                $logo.css('animation', 'fade-zoom-out 2s forwards');
+            }, $letters.length * 300 + 500);
+
+            // Hide loading screen and show content after all animations
+            setTimeout(function () {
+                $loadingScreen.hide();
+                $content.show().css('display', 'flex');
+                $header.show().css('display', 'flex');
+            }, $letters.length * 300 + 2500);
+        });
+
+        $('.cute-textbox').on('click', function () {
+            $(this).select(); // Select the text inside the textbox
+            document.execCommand('copy'); // Copy the selected text to clipboard
+        });
+    </script>
+
+</body>
+
+</html>

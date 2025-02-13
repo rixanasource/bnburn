@@ -1,0 +1,602 @@
+@font-face {
+    font-family: 'bubble';
+    src: url('sweet.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'bubble2';
+    src: url('milky.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    font-family: 'bubble', sans-serif; /* Use your custom font globally */
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+body {
+    margin: 0;
+    animation: backgroundColorChange 4s ease-in-out forwards;
+    transition: background-color 4s ease-in-out;
+    color:#ef540c;
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Default logo size (for desktop) */
+.logo {
+    max-width: 100%;
+    height: auto;
+    width: 200px; /* You can adjust this based on your design */
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+
+    @keyframes smoothBounceZoom {
+        0% {
+            transform: scale(0.8) translateY(0); /* Start smaller */
+            opacity: 0.8; /* Slightly faded at start */
+        }
+        20% {
+            transform: scale(1.2) translateY(-20px); /* Zoom larger and rise */
+            opacity: 1; /* Fully visible */
+        }
+        40% {
+            transform: scale(1) translateY(10px); /* Slight rebound downward */
+            opacity: 1;
+        }
+        60% {
+            transform: scale(1.1) translateY(-10px); /* Gentle bounce up */
+            opacity: 1;
+        }
+        80% {
+            transform: scale(1) translateY(5px); /* Settle down slightly */
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1) translateY(0); /* Final stable position */
+            opacity: 1; /* Fully visible */
+        }
+    }
+
+
+  .logo-anya {
+    max-width: 100%;
+    height: auto;
+    width: 200px;
+    margin-bottom: 3vh;
+    animation: smoothBounceZoom 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  }
+
+
+  .logo-sakura {
+    max-width: 100%;
+    height: auto;
+    width: 200px;
+    margin-bottom: 3vh;
+    animation: neonGlow 3s ease-in-out infinite;
+  }
+
+  /* For smaller screens (mobile devices) */
+  @media screen and (max-width: 768px) {
+    .logo {
+      width: 150px; /* Resize logo for mobile */
+    }
+  }
+
+  /* For very small screens (portrait mobile or very small devices) */
+  @media screen and (max-width: 480px) {
+    .logo {
+      width: 120px; /* Further resize logo for very small devices */
+    }
+  }
+
+
+
+@keyframes backgroundColorChange {
+    0% {
+        background-color:#ff5100eb;
+    }
+    100% {
+        background-color: #000000;
+    }
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+
+/* Loading container */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Text styling */
+.loading h1 {
+    display: flex;
+    gap: 0.1em; /* Small spacing between letters */
+    font-size: 3rem;
+    margin: 1rem 0;
+    letter-spacing: 0.05em;
+    color: #000000;
+    text-shadow:
+    0 0 7px #ff5100eb,
+    0 0 10px #ff5100eb,
+    0 0 21px #ff5100eb,
+    0 0 42px rgb(229, 46, 0),
+    0 0 82px rgb(231, 58, 0),
+    0 0 92px rgb(205, 46, 10),
+    0 0 102px rgb(238, 52, 0),
+    0 0 151px rgb(214, 25, 0);
+}
+
+.loading h1 span {
+    display: inline-block;
+    animation: bounce-rotate-zoom 2s infinite ease-in-out;
+}
+
+/* Bounce, rotate, and zoom animation for letters */
+@keyframes bounce-rotate-zoom {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translateY(-20px) rotate(15deg) scale(1.2);
+    }
+    50% {
+        transform: translateY(0) rotate(-10deg) scale(1);
+    }
+    75% {
+        transform: translateY(-10px) rotate(10deg) scale(0.8);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+/* Random delays for animation */
+.loading h1 span:nth-child(1) { animation-delay: 0s; }
+.loading h1 span:nth-child(2) { animation-delay: 0.1s; }
+.loading h1 span:nth-child(3) { animation-delay: 0.2s; }
+.loading h1 span:nth-child(4) { animation-delay: 0.3s; }
+.loading h1 span:nth-child(5) { animation-delay: 0.4s; }
+.loading h1 span:nth-child(6) { animation-delay: 0.5s; }
+.loading h1 span:nth-child(7) { animation-delay: 0.6s; }
+.loading h1 span:nth-child(8) { animation-delay: 0.7s; }
+.loading h1 span:nth-child(9) { animation-delay: 0.8s; }
+.loading h1 span:nth-child(10) { animation-delay: 0.9s; }
+.loading h1 span:nth-child(11) { animation-delay: 1s; }
+.loading h1 span:nth-child(12) { animation-delay: 1.1s; }
+
+/* Fade-out bounce animation */
+@keyframes fade-bounce {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+}
+
+/* Zoom animation for logo during loading */
+@keyframes zoom-in-out {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments for phone size */
+@media (max-width: 768px) {
+    .loading h1 {
+        font-size: 2.5rem;
+    }
+
+    .loading img {
+        width: 120px;
+        height: 120px;
+    }
+
+    body {
+        justify-content: flex-start;
+    }
+
+    .content h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Responsive adjustments for very small phone size */
+@media (max-width: 480px) {
+    .loading h1 {
+        font-size: 2rem;
+    }
+
+    .loading img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .content h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Anime-style neon loading bar */
+.loading-bar {
+    width: 30%;
+    height: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden; /* Ensures the glowing bar stays within bounds */
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); /* Subtle glow for the bar */
+}
+
+.loading-bar-inner {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #000000, #ff1900, #ff1900);
+    border-radius: 5px;
+    animation: loading 3s ease-in-out infinite;
+    box-shadow: 0 0 10px #000000, 0 0 20px #d76100, 0 0 30px #ff69b4; /* Neon glow for the inner bar */
+}
+
+/* Animation for loading bar */
+@keyframes loading {
+    0% {
+        width: 0;
+        box-shadow: 0 0 10px #000000, 0 0 20px #ff1900, 0 0 30px #ff1900; /* Initial neon glow */
+    }
+    50% {
+        width: 50%;
+        box-shadow: 0 0 15px #000000, 0 0 30px #d76100, 0 0 40px #ff1900; /* Intensified glow */
+    }
+    100% {
+        width: 100%;
+        box-shadow: 0 0 10px #000000, 0 0 20px #d76100, 0 0 30px #ff1900; /* Return to original glow */
+    }
+}
+
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments for phone size */
+@media (max-width: 768px) {
+    .loading h1 {
+        font-size: 2.5rem; /* Slightly smaller font */
+    }
+
+    .loading img {
+        width: 120px;
+        height: 120px;
+    }
+
+    body {
+        justify-content: flex-start;
+    }
+
+    .content h1 {
+        font-size: 2rem; /* Slightly smaller for mobile */
+    }
+
+    .content p {
+        font-size: 1rem; /* Adjusted font size */
+        padding: 0 10px; /* Added padding for better readability */
+    }
+}
+
+.header-bar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background: #000000;
+    box-shadow: 0 4px 20px #ff5900;
+    border-top: 5px solid  #ff4000;
+    border-bottom: 5px solid   #ff4400;
+    border-radius: 12px;
+    top: 0;
+    z-index: 1000; /* Ensures it stays above other content */
+    color:#ffffff;
+  }
+
+/* Transparent background when scrolling */
+.header-bar.transparent {
+    background: transparent;
+    box-shadow: none; /* Removes the shadow when transparent */
+}
+
+  a, a:hover {
+    color:#ff6200;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .icon i {
+    display: inline-block;
+  }
+
+  .content {
+    display: none;
+    flex-direction: column;
+    height: auto;
+    animation: fade-in 0.5s forwards; /* Fade-in effect */
+  }
+
+  .content h1 {
+    margin-bottom: 5vh;
+  }
+
+  .background-1 {
+    text-align: center;
+    background-image: url('gif1.gif');
+    width: 100vw; /* Full width of the viewport */
+    height: auto; /* Full height of the viewport */
+    background-size: cover; /* Makes the image cover the element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+  }
+
+  .background-2 {
+    padding-top: 3%;
+    text-align: center;
+    background-image: url('logo.png');
+    width: 100vw; /* Full width of the viewport */
+    background-size: cover; /* Makes the image cover the element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+  }
+
+
+
+  /* Adding transparent background */
+  .container {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    padding: 1%; /* Optional padding to give space around the text */
+    border-radius: 8px; /* Optional rounded corners */
+    margin-top: 10vh;
+}
+
+.container p {
+    color: #000000; /* Text color */
+}
+
+.container {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10vh;
+}
+
+    p {
+    color: #352e35;
+    font-size: 30px;
+    }
+
+.container-cute {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+/* Cute textbox styling */
+.cute-textbox {
+    padding: 2vh;
+    font-size: 18px;
+    text-align: center;
+    border: 4px solid #ff4800;
+    border-radius: 12px;
+    background-color: rgba(255, 221, 225, 0.5);
+    color: #000000;
+    outline: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Make the textbox responsive */
+    max-width: 350px; /* Max width for larger screens */
+    margin-bottom: 3vh;
+    font-family: 'bubble2';
+}
+
+/* Hover effect - zoom in and add shadow */
+.cute-textbox:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+}
+
+/* On focus (when clicked) - animate text color and background */
+.cute-textbox:focus {
+    background-color: #ff5100;
+    color: #FFF;
+    border-color: #ff4000;
+}
+
+/* Mobile and tablet styling (for screens 768px and below) */
+@media (max-width: 768px) {
+    .cute-textbox {
+        font-size: 16px; /* Slightly smaller font for mobile */
+        padding: 12px; /* Adjust padding */
+        max-width: 200px;
+    }
+
+    p {
+        font-size: 15px;
+        }
+}
+
+/* Very small screens (e.g., portrait phones) */
+@media (max-width: 480px) {
+    .cute-textbox {
+        font-size: 14px; /* Smaller font for very small screens */
+        padding: 10px; /* Adjust padding */
+        max-width: 200px;
+    }
+
+    p {
+        font-size: 15px;
+        }
+}
+
+.container-cute {
+    flex-grow: 1;  /* Allows the content to take up remaining space */
+}
+
+  /* Footer styling */
+footer {
+    margin-top: auto;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #3c3c3c;
+}
+
+footer a {
+    text-decoration: none;
+    color: #3c3c3c;
+    font-weight: bold;
+}
+
+.neon-text span {
+    display: inline-block;
+    font-size: 1em;
+    color: #000000;
+    text-shadow: 0 0 10px #ff6200, 0 0 20px #ff0000;
+    animation: dance 1s infinite;
+}
+
+@keyframes dance {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(10px, -10px) rotate(15deg);
+    }
+    50% {
+        transform: translate(-10px, 10px) rotate(-15deg);
+    }
+    75% {
+        transform: translate(5px, -5px) rotate(10deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+  .icon:hover {
+    animation: dance 0.5s infinite ease-in-out;
+    color: #634a56; /* Change color on hover */
+  }
+
+  /* Keyframes for dancing motion */
+  @keyframes dance {
+    0%, 100% {
+      transform: rotate(0) translateY(0); /* No movement */
+    }
+    25% {
+      transform: rotate(-15deg) translateY(-5px); /* Tilt left and up */
+    }
+    50% {
+      transform: rotate(15deg) translateY(5px); /* Tilt right and down */
+    }
+    75% {
+      transform: rotate(-10deg) translateY(0); /* Slight tilt left */
+    }
+  }
+
+ 
+
+  /* Hover effect */
+  .cuteAnimate {
+    animation: cuteAnimation 3s infinite ease-in-out; 
+  }
+
+  /* Keyframes for the cute animation */
+  @keyframes cuteAnimation {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.1) rotate(-5deg);
+    }
+    50% {
+      transform: scale(1.2) rotate(5deg);
+    }
+    75% {
+      transform: scale(1.1) rotate(-2deg);
+    }
+  }
+
+
+  .with-background-text {
+    font-size: 10px;
+    color: #ff2600; /* Black text */
+    background: rgba(63, 63, 63, 0.8); /* Transparent white */
+    padding: 3em;
+    max-width: 400px;
+    text-align: justify;
+}
