@@ -395,12 +395,12 @@ body {
   .background-1 {
     text-align: center;
     background-image: url('gif1.gif');
-    width: 100vw; /* Full width of the viewport */
-    height: 100vw; /* Full height of the viewport */
-    background-size: contain; /* Makes the image cover the element */
+    width: 100vw;  
+    height: 100vh;  
+    background-size: cover; /* Ensures the image fully covers the background */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
-  }
+}
 
   .background-2 {
     padding-top: 3%;
