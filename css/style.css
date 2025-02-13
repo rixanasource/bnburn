@@ -396,7 +396,7 @@ body {
     text-align: center;
     background-image: url('gif1.gif');
     width: 100vw;  
-    height: 100vh;  
+    height: auto;  
     background-size: cover; /* Ensures the image fully covers the background */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
